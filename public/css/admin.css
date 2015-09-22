@@ -1,0 +1,8 @@
+@media (min-width: 992px){
+    .col-md-offset-1 {
+        margin-left: 4.333333%;
+    }
+}
+.col-md-offset-1 .panel.panel-default{
+    padding: 15px;
+}

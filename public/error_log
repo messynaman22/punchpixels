@@ -1,0 +1,30 @@
+[04-Jun-2015 19:24:26 UTC] PHP Fatal error:  Can't use function return value in write context in /home/punchpix/public_html/credit1solutions/app/Http/Controllers/HomeController.php on line 60
+[04-Jun-2015 19:25:02 UTC] PHP Fatal error:  Can't use function return value in write context in /home/punchpix/public_html/credit1solutions/app/Http/Controllers/HomeController.php on line 60
+[04-Jun-2015 19:28:46 UTC] PHP Fatal error:  Can't use function return value in write context in /home/punchpix/public_html/credit1solutions/app/Http/Controllers/HomeController.php on line 60
+[04-Jun-2015 19:52:57 UTC] PHP Fatal error:  Can't use function return value in write context in /home/punchpix/public_html/credit1solutions/app/Http/Controllers/SignupController.php on line 72
+[06-Jun-2015 22:07:36 UTC] PHP Fatal error:  Can't use function return value in write context in /home/punchpix/public_html/credit1solutions/app/Http/Controllers/SignupController.php on line 75
+[06-Jun-2015 22:07:47 UTC] PHP Fatal error:  Can't use function return value in write context in /home/punchpix/public_html/credit1solutions/app/Http/Controllers/HomeController.php on line 70
+[06-Jun-2015 22:09:14 UTC] PHP Fatal error:  Can't use function return value in write context in /home/punchpix/public_html/credit1solutions/app/Http/Controllers/HomeController.php on line 70
+[06-Jun-2015 22:11:19 UTC] PHP Fatal error:  Can't use function return value in write context in /home/punchpix/public_html/credit1solutions/app/Http/Controllers/HomeController.php on line 73
+[06-Jun-2015 22:13:10 UTC] PHP Fatal error:  Can't use function return value in write context in /home/punchpix/public_html/credit1solutions/app/Http/Controllers/HomeController.php on line 73
+[06-Jun-2015 22:14:38 UTC] PHP Fatal error:  Can't use function return value in write context in /home/punchpix/public_html/credit1solutions/app/Http/Controllers/SignupController.php on line 75
+[06-Jun-2015 22:15:52 UTC] PHP Parse error:  syntax error, unexpected '{' in /home/punchpix/public_html/credit1solutions/app/Http/Controllers/SignupController.php on line 76
+[06-Jun-2015 22:16:28 UTC] PHP Parse error:  syntax error, unexpected '{' in /home/punchpix/public_html/credit1solutions/app/Http/Controllers/SignupController.php on line 76
+[06-Jun-2015 22:16:38 UTC] PHP Fatal error:  Can't use function return value in write context in /home/punchpix/public_html/credit1solutions/app/Http/Controllers/SignupController.php on line 88
+[06-Jun-2015 22:17:53 UTC] PHP Fatal error:  Can't use function return value in write context in /home/punchpix/public_html/credit1solutions/app/Http/Controllers/SignupController.php on line 88
+[06-Jun-2015 22:17:56 UTC] PHP Fatal error:  Can't use function return value in write context in /home/punchpix/public_html/credit1solutions/app/Http/Controllers/SignupController.php on line 103
+[06-Jun-2015 22:22:06 UTC] PHP Fatal error:  Can't use function return value in write context in /home/punchpix/public_html/credit1solutions/app/Http/Controllers/SignupController.php on line 128
+[20-Jun-2015 20:03:07 UTC] PHP Fatal error:  Class 'App\Orders' not found in /home/punchpix/public_html/creditsol/credit1solutions/app/Http/Controllers/SignupController.php on line 309
+[15-Jul-2015 08:37:37 UTC] PHP Fatal error:  Class 'PDF' not found in /home/punchpix/public_html/creditsol/credit1solutions/app/Http/Controllers/SignupController.php on line 273
+[15-Jul-2015 08:39:03 UTC] PHP Fatal error:  Class 'PDF' not found in /home/punchpix/public_html/creditsol/credit1solutions/app/Http/Controllers/SignupController.php on line 273
+[15-Jul-2015 08:46:44 UTC] PHP Fatal error:  Class 'PDF' not found in /home/punchpix/public_html/creditsol/credit1solutions/app/Http/Controllers/SignupController.php on line 273
+[15-Jul-2015 08:47:11 UTC] PHP Fatal error:  Class 'PDF' not found in /home/punchpix/public_html/creditsol/credit1solutions/app/Http/Controllers/SignupController.php on line 273
+[15-Jul-2015 08:48:21 UTC] PHP Fatal error:  Class 'PDF' not found in /home/punchpix/public_html/creditsol/credit1solutions/app/Http/Controllers/SignupController.php on line 273
+[15-Jul-2015 08:50:19 UTC] PHP Fatal error:  Class 'PDF' not found in /home/punchpix/public_html/creditsol/credit1solutions/app/Http/Controllers/SignupController.php on line 273
+[15-Jul-2015 08:54:21 UTC] PHP Fatal error:  Class 'PDF' not found in /home/punchpix/public_html/creditsol/credit1solutions/app/Http/Controllers/SignupController.php on line 273
+[15-Jul-2015 08:55:27 UTC] PHP Fatal error:  Class 'PDF' not found in /home/punchpix/public_html/creditsol/credit1solutions/app/Http/Controllers/SignupController.php on line 273
+[15-Jul-2015 04:57:05 America/Kentucky/Louisville] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/punchpix/public_html/creditsol/credit1solutions/vendor/dompdf/dompdf/include/dompdf.cls.php on line 278
+[15-Jul-2015 05:00:42 America/Kentucky/Louisville] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/punchpix/public_html/creditsol/credit1solutions/vendor/dompdf/dompdf/include/style.cls.php on line 729
+[15-Jul-2015 05:03:31 America/Kentucky/Louisville] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/punchpix/public_html/creditsol/credit1solutions/vendor/dompdf/dompdf/include/frame.cls.php on line 1027
+[30-Jul-2015 02:38:43 America/Kentucky/Louisville] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/punchpix/public_html/creditsol/credit1solutions/vendor/dompdf/dompdf/include/frame.cls.php on line 360
+[06-Aug-2015 10:44:57 America/Kentucky/Louisville] PHP Fatal error:  Class 'App\Http\Controllers\Mail' not found in /home/punchpix/public_html/creditsol/credit1solutions/app/Http/Controllers/ApiController.php on line 502

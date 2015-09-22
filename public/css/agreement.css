@@ -1,0 +1,165 @@
+ .checkbox{
+	position: relative;
+	display: block;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.checkbox label {
+   min-height: 20px;
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 0;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 27px;
+}
+.text-center{
+	text-align: center;
+}
+.page-break {
+    page-break-after: always;
+}
+table{
+	table-layout: fixed;
+	border:2px solid black;
+	width: 900px;
+}
+td{
+	border: 1px solid black;
+	vertical-align: top;
+}
+footer{
+	/*position: relative;
+	font-size:12px;
+	bottom: -120px;*/
+	position: absolute;
+	   bottom: 0;
+	   left: 0;
+	   font-size:12px;
+}
+label{
+	font-size: 14px;
+
+}
+
+input{
+	  height: 24px;
+	  width: 150px;
+ 	 font-size: 14px;
+}
+.m-t{
+	margin-top: 10px;
+}
+.m-l{
+	margin-left: 10px;
+}
+.m-r{
+	margin-right:10px;
+}
+
+.bold{
+	font-weight: bold;
+}
+img{
+width: 80px;
+height: 20px;
+}
+body{
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left: 20px;
+	padding-right: 20px;			
+}
+.np{
+	padding:0px;
+}		
+.test{
+	background:#e3e3e3;
+	padding-top:10px;
+}
+.xsf{
+	font-size:13px;
+}
+.box{
+	border:2px solid black;
+
+}	
+.pb{
+	padding-bottom: 2px;
+}
+hr{
+	border: 1px solid black;
+}
+.container{
+	position:relative;
+	margin-left: 10px;
+	margin-right: auto;
+	width: 890px;
+}
+.page{
+	padding:2px;
+}	
+
+.page-height{
+	height: 850px;
+	width:900px;
+	position: relative;
+}
+
+
+.cover{
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	width:1200px;					
+}
+.in{
+	display: inline-block;
+	padding:10px;
+	vertical-align: top;
+}
+.firstcont{
+	height: 375px ;	
+}
+.seccont{
+	height: 60px;
+}
+.thirdcontent{
+	height: 15px;
+}
+.half{
+	width: 576px;				
+			
+}
+.onehalf{
+	width: 242px;
+}
+.onethird{
+	width:142px;
+}
+.onetenth{
+	width: 10px;
+}
+.fill{
+	margin-left: -3px;
+} 
+.f{
+	margin-left:-1px 
+}
+
+.p-l{
+	padding-left: 10px;
+}
+.p-large{
+	padding-left: 35px;
+	padding-right: 35px;
+}
+
+.pclass{
+margin-top:5px;padding-left:10px
+}
+
+.m-t-s{
+	margin-top:-5px;
+}
