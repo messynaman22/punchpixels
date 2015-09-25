@@ -69,7 +69,7 @@
 	</tr>
 	
 	<tr>
-		<td class="title">Expiration Date MM :   </td>
+		<td class="title">Expiration Date MMYY :   </td>
 		<td>	{!!  $step2_month !!}/ 	{!! $step2_year !!} </td>
 	</tr>
 	<tr>
@@ -126,6 +126,23 @@
 	<tr>
 		<td class="title">Services Start Date :   </td>
 		<td>	{!! $service_start_date !!}</td>
+	</tr>
+
+	<tr>
+		<td class="title">Have you been in the Military :</td>
+		<td>	{!! ($step1_ml == "1" ? "Yes": "No") !!}</td>
+	</tr>
+    <tr>
+		<td class="title">How Did You Hear About Us :</td>
+		<td>	{!! $step1_hau !!}</td>
+	</tr>
+    <tr>
+		<td class="title">What are you interested in :</td>
+		<td>	{!! $step1_in !!}</td>
+	</tr>
+    <tr>
+		<td class="title">Best time to contact you :</td>
+		<td>	{!! $step1_btc !!}</td>
 	</tr>
 	
 
