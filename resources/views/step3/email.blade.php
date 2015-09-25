@@ -107,7 +107,7 @@
 		<td>	{!! $dls !!}</td>
 	</tr>	
 	<tr>
-		<td class="title">Driving licence number :   </td>
+		<td class="title">Driver license number :   </td>
 		<td>	{!! $dln !!}</td>
 	</tr>
 		
