@@ -848,25 +848,28 @@ class ApiController extends Controller{
 	}
 
 	private function hauList(){
-		return ['Auto Dealer'=>'Auto Dealer', 
-		 'Billboard' =>'Billboard',
-		 'Friend or Relative' =>'Friend or Relative',
-		 'From a Current Client' => 'From a Current Client',
-		 'I was a Former Client' => 'I was a Former Client',                                                                
-		 'Internet-Google'=>'Internet-Google',
-		 'Internet-MSN'=>'Internet-MSN',
-		 'Internet-Yahoo'=>'Internet-Yahoo',
-		 'Internet-Other'=>'Internet-Other',
-		 'Magazine' => 'Magazine',
-		 'Mortgage Broker' =>'Mortgage Broker',
-		 'Movie Theater Trailer'=>'Movie Theater Trailer',
-		 'Newspaper' => 'Newspaper',
-		 "Other" => "Other",
-		 "Phone Book" => "Phone Book",
-		 "Radio" => "Radio",
-		 "Realtor" => "Realtor",
-		 "Sign on Building" => "Sign on Building"
-		 ];
+		return
+				[
+					'Auto Dealer'=>'Auto Dealer',
+					'BBB' => 'BBB',
+					'Billboard' =>'Billboard',
+					'Friend or Relative' =>'Friend or Relative',
+					'From a Current Client' => 'From a Current Client',
+					'I was a Former Client' => 'I was a Former Client',
+					'Internet-Google'=>'Internet-Google',
+					'Internet-MSN'=>'Internet-MSN',
+					'Internet-Yahoo'=>'Internet-Yahoo',
+					'Internet-Other'=>'Internet-Other',
+					'Magazine' => 'Magazine',
+					'Mortgage Broker' =>'Mortgage Broker',
+					'Movie Theater Trailer'=>'Movie Theater Trailer',
+					'Newspaper' => 'Newspaper',
+					"Other" => "Other",
+					"Phone Book" => "Phone Book",
+					"Radio" => "Radio",
+					"Realtor" => "Realtor",
+					"Sign on Building" => "Sign on Building"
+				];
 	}
 
 	private function interestedList(){
