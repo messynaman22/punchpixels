@@ -376,7 +376,7 @@ You will receive a copy of this form and all Disclosures, Terms and Conditions.<
 	        var ch = $this.val().charAt(length-1);
 	        var currentValue = $this.val();
 
-	            if(length>11){
+	            if(length>12){
 	              $this.val(currentValue.substring(0,length-1));
 	              return;
 	            }
