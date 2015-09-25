@@ -370,24 +370,32 @@ You will receive a copy of this form and all Disclosures, Terms and Conditions.<
 		return num1+"-"+num2;
 	 }
 
-	 retByName("dln").bind("change paste keyup",function(){
-	        var $this = $(this);
-	        var length = $this.val().length;
-	        var ch = $this.val().charAt(length-1);
-	        var currentValue = $this.val();
+ 	retByName("dln").bind("change paste keyup",function(){
+		var $this = $(this);
+		var length = $this.val().length;
+		var ch = $this.val().charAt(length-1);
+		var currentValue =$this.val();
 
-	            if(length>12){
-	              $this.val(currentValue.substring(0,length-1));
-	              return;
-	            }
 
-	            for(var i=3;i<length;i+=4){              
-	               if(length>i  &&  currentValue.charAt(i)!="-"){             
-	                $this.val(splitString(i,currentValue));
-	                length++;
-	               } 
-	            }
-        	});
+		if(isNaN(ch)||length>12){
+			$this.val(currentValue.substring(0,length-1));
+			return;
+		}
+
+		if(length>3  &&  currentValue.charAt(3)!="-"){
+			var num1 = currentValue.substring(0,3);
+			var num2 = currentValue.substring(3,length);
+			$this.val(num1+"-"+num2);
+			length++;
+		}
+
+		if(length>7 &&  currentValue.charAt(7)!="-"){
+			var num1 = currentValue.substring(0,7);
+			var num2 = currentValue.substring(7,length);
+			$this.val(num1+"-"+num2);
+			return;
+		}
+	});
 
 	retByName("ssn").bind("change paste keyup",function(){
 		        var $this = $(this);
