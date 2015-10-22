@@ -368,7 +368,11 @@ You will receive a copy of this form and all Disclosures, Terms and Conditions.<
 		var num1 = currentValue.substring(0,at);
 		var num2 = currentValue.substring(at,currentValue.length);
 		return num1+"-"+num2;
-	 }
+ 	}
+
+	function isLetter(str) {
+		return str.length === 1 && str.match(/[a-zA-Z]/i);
+	}
 
  	retByName("dln").bind("change paste keyup",function(){
 		var $this = $(this);
@@ -377,7 +381,7 @@ You will receive a copy of this form and all Disclosures, Terms and Conditions.<
 		var currentValue =$this.val();
 
 
-		if(isNaN(ch)||length>12){
+		if((isNaN(ch) && !(length == 1 && isLetter(ch))) || length>12){
 			$this.val(currentValue.substring(0,length-1));
 			return;
 		}
