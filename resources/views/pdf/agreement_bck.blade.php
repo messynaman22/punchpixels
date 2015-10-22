@@ -347,7 +347,7 @@
 
 				provided an audio disclaimer in step 2. The Audio disclaimer is provided to enhance the importance of our compliance
 
-				during your signup process. If you disagree, then you have 3 days to cancel from the signup date, which is on {!! $fpd_pdf !!}
+				during your signup process. If you disagree, then you have 3 days to cancel from the signup date, which is on {!! $three_today !!}
 
 				midnight 12:00PM EST. This content is both emailed as pdf to the email address you provided at signup as well as located
 
