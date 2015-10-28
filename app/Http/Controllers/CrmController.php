@@ -7,6 +7,7 @@ use App\CrmPasswordReset;
 use Response;
 use Hash;
 use Mail;
+use URL;
 use App\Http\Requests\LoginCrmRequest;
 
 class CrmController extends Controller{
@@ -29,11 +30,11 @@ class CrmController extends Controller{
 	}
 
 	public function postLogin(LoginCrmRequest $login){
-		$input = $login->all();
+        $inputs = $login->all();
 		
-		if($input["_token"]!=$this->token)
+		if($inputs["_token"]!=$this->token)
 			return redirect()->to("crm/login")->with("errormessage","Invalid Request");
-		$admin = Crmadmins::where("email","=",$input["email"]);
+		$admin = Crmadmins::where("email","=",$inputs["email"]);
 		if($admin->count()==0)
 			return redirect()->to("crm/login")->with("errormessage","Invalid user. Please register first.");				
 		
@@ -42,7 +43,7 @@ class CrmController extends Controller{
 		if($admin->status != 'active')
 			return redirect()->to("crm/login")->with("errormessage","Invalid user. Please register first.");
 
-		if(!Hash::check($input["password"],$admin->password))
+		if(!Hash::check($inputs["password"],$admin->password))
 			return redirect()->to("crm/login")->with("errormessage","Invalid password");
 		
 		session()->set("admin",["id"=>$admin->id,"username"=>$admin->username,"email"=>$admin->email,"role"=>$admin->role]);
@@ -54,16 +55,16 @@ class CrmController extends Controller{
     }
 
     public function postForgotpassword(){
-        $input = Request::all();
+        $inputs = Request::all();
 
-        $admin = Crmadmins::whereRaw("email = ? and status='active'", array($input['email']));
+        $admin = Crmadmins::whereRaw("email = ? and status='active'", array($inputs['email']));
         if($admin->count()==0){
             return view("crm.forgotpassword")->with('errormessage', "User doesn't exist");
         }
 
         $admin = $admin->first();
         $token = str_random(45);
-        $url = URL::to("/crm/passwordreset/?email={$input['email']}&token={$token}");
+        $url = URL::to("/crm/passwordreset")."?email={$inputs['email']}&token={$token}";
 
         $passwordReset = new CrmPasswordReset();
         $passwordReset->email = $admin->email;
@@ -73,25 +74,50 @@ class CrmController extends Controller{
         Mail::queue('emails.reset_password', array("to" => $admin->username, 'url'=> $url), function($message) use ($admin){
             $message->to($admin->email, $admin->username)->subject("Password reset at Credit1solutions.com CRM");
         });
-        return view("crm.forgotpassword")->with('successmessage', "An emails has been sent to email ".$input['email']);
+        return view("crm.forgotpassword")->with('successmessage', "An emails has been sent to email ".$inputs['email']);
     }
 
-    public function getPasswordReset(){
-        $input = Request::all();
-        $passwordReset = CrmPasswordReset::whereRaw("email = ? and token = ?", array($input['email'], $input['token']));
+    public function getPasswordreset(){
+        $inputs = Request::all();
+        $passwordReset = CrmPasswordReset::whereRaw("email = ? and token = ?", array($inputs['email'], $inputs['token']));
         if($passwordReset->count()==0){
             App::abort(403, 'Unauthorized action.');
         }
 
-        $admin = Crmadmins::whereRaw("email = ? and status='active'", array($input['email']));
+        $admin = Crmadmins::whereRaw("email = ? and status='active'", array($inputs['email']));
         if($admin->count()==0){
             App::abort(403, 'Unauthorized action.');
         }
+        $admin = $admin->first();
 
-        return view('crm.passwordreset', array('admin'=> $admin->first(), 'token'=> $input['token']));
+        return view('crm.passwordreset', array('email'=> $admin->email, 'token'=> $inputs['token']));
     }
-    public function postPasswordReset(){
+    public function postPasswordreset(){
+        $inputs = Request::all();
+        $passwordReset = CrmPasswordReset::whereRaw("email = ? and token = ?", array($inputs['email'], $inputs['token']));
+        if($passwordReset->count()==0){
+            App::abort(403, 'Unauthorized action.');
+        }
 
+        $admin = Crmadmins::whereRaw("email = ? and status='active'", array($inputs['email']));
+        if($admin->count()==0){
+            App::abort(403, 'Unauthorized action.');
+        }
+        $admin = $admin->first();
+        $passwordReset = $passwordReset->first();
+
+        if (strlen($inputs['password']) < 6 || $inputs['password']!=$inputs['passwordconfirm']){
+            return view('crm.passwordreset', array('email'=> $admin->email, 'token'=> $inputs['token']))
+                ->with('errormessage', "Invalid Password or passwords doesn't match");
+        }
+
+        $admin->password = Hash::make($inputs["password"]);
+        $admin->save();
+
+        $passwordReset->delete();
+
+        session()->set("admin",["id"=>$admin->id,"username"=>$admin->username,"email"=>$admin->email,"role"=>$admin->role]);
+        return redirect()->to("crm/response");
     }
 
     public function getResponse(){

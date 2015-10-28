@@ -30,9 +30,11 @@
                         <select ng-model="searchOption" ng-options="filter.text for filter in filterValues"  class="form-control" style="color:#666666" ></select>                                               
                        &nbsp;&nbsp; 
                         <label for="history" style="color:white">Show data from :</label>
-                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#historyModal">(( (historyDate)? ( historyDate | date:'MMM dd yyyy' ):   "Beginning"))</button>               
+                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#historyModal">(( (historyDate)? ( historyDate | date:'MMM dd yyyy' ):   "Beginning"))</button>
+                        @if($admin["role"] == 'Admin' || $admin["role"] == 'Write')
                         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addUser"><i class="fa fa-plus"></i> &nbsp;&nbsp;Add User</button>    
-                        <button type="button" class="btn btn-danger" ng-click="deleteUsers()" ng-disabled="selectedData.length == 0"><i class="fa fa-close"></i> &nbsp;&nbsp;Delete User</button>                                                                               
+                        <button type="button" class="btn btn-danger" ng-click="deleteUsers()" ng-disabled="selectedData.length == 0"><i class="fa fa-close"></i> &nbsp;&nbsp;Delete User</button>
+                        @endif
                     </form>              
                   </div>
                 </div>
