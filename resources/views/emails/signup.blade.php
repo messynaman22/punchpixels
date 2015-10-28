@@ -944,8 +944,8 @@ p,.three-col ol,.three-col ul{line-height:20px;Margin-bottom:20px}.wrapper .one-
                             <td class="padded" style="padding: 0;vertical-align: top;padding-left: 32px;padding-right: 32px;word-break: break-word;word-wrap: break-word">
                               
             <div class="btn" style="Margin-bottom: 24px;padding: 2px;text-align: center">
-              <![if !mso]><a style="border: 1px solid #ffffff;display: inline-block;font-size: 13px;font-weight: bold;line-height: 15px;outline-style: solid;outline-width: 2px;padding: 10px 30px;text-align: center;text-decoration: none !important;transition: all .2s;color: #fff !important;font-family: Tahoma,sans-serif;background-color: #23b7e5;outline-color: #23b7e5;text-shadow: 0 1px 0 #20a5ce;cursor:pointer" href={!! $url !!}>Verify</a><![endif]>
-            <!--[if mso]><v:rect xmlns:v="urn:schemas-microsoft-com:vml" href="http://www.google.com" style="width:104px" fillcolor="#23B7E5" strokecolor="#23B7E5" strokeweight="6px"><v:stroke linestyle="thinthin"></v:stroke><v:textbox style="mso-fit-shape-to-text:t" inset="0px,7px,0px,7px"><center style="font-size:13px;line-height:15px;color:#FFFFFF;font-family:Tahoma,sans-serif;font-weight:bold;mso-line-height-rule:exactly;mso-text-raise:0px">Verify</center></v:textbox></v:rect><![endif]--></div>
+              <a style="border: 1px solid #ffffff;display: inline-block;font-size: 13px;font-weight: bold;line-height: 15px;outline-style: solid;outline-width: 2px;padding: 10px 30px;text-align: center;text-decoration: none !important;transition: all .2s;color: #fff !important;font-family: Tahoma,sans-serif;background-color: #23b7e5;outline-color: #23b7e5;text-shadow: 0 1px 0 #20a5ce;cursor:pointer" href="{!! $url !!}">Verify</a>
+             </div>
           
                             </td>
                           </tr>

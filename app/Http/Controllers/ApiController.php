@@ -514,9 +514,9 @@ class ApiController extends Controller{
 		   $message->to($input["email"], 'Rujul Solanki')->subject("Welcome to Credit1solutions.com CRM");
 		});
 
-		 if($crm->save())
+        if($crm->save())
 		 	return $this->validResponse( $crm->toArray());
-		 else
+        else
 		 	return $this->errorResponse("Unable to create user");
 	}
 
