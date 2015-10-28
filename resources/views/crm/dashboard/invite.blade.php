@@ -17,11 +17,12 @@
 		   	<button class='btn btn-danger btn-sm  pull-right' style="margin-top:-7px" ng-click="removeUser(1,user)"><i class='fa  fa-w fa-close'></i>&nbsp;Cancel Invite</button>
 		
 		   	<div class="btn-group pull-right" style="margin-top:-7px;margin-right:10px">		   	
-		   	  <a href="#" class="btn btn-sm btn-primary" disabled>(( (user.user_state =="4")?"Read" : "Write"  ))</a>
+		   	  <a href="#" class="btn btn-sm btn-primary" disabled>(( user.role ))</a>
 		   	  <a href="#" class="btn btn-sm  btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
 		   	  <ul class="dropdown-menu">
-		   	    <li><a href="#" ng-click="changeAccess(user,'4')">Read</a></li>
-		   	    <li><a href="#" ng-click="changeAccess(user,'5')">Write</a></li>	   	    
+		   	    <li><a href="#" ng-click="changeAccess(user,'Admin')">Admin</a></li>
+		   	    <li><a href="#" ng-click="changeAccess(user,'Read')">Read</a></li>
+		   	    <li><a href="#" ng-click="changeAccess(user,'Write')">Write</a></li>
 		   	  </ul>
 		   	</div>
 
@@ -52,11 +53,12 @@
 	  			<td> (( user.email ))</td>
 	  			<td>
 	  				<div class="btn-group" >		   	
-	  				  <a href="#" class="btn btn-sm btn-primary" disabled>(( (user.user_state =="2")?"Read" : "Write"  ))</a>
+	  				  <a href="#" class="btn btn-sm btn-primary" disabled>(( user.role  ))</a>
 	  				  <a href="#" class="btn btn-sm  btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
 	  				  <ul class="dropdown-menu">
-	  				    <li><a href="#" ng-click="changeAccess(user,'2')">Read</a></li>
-	  				    <li><a href="#" ng-click="changeAccess(user,'3')">Write</a></li>	   	    
+	  				    <li><a href="#" ng-click="changeAccess(user,'Admin')">Admin</a></li>
+	  				    <li><a href="#" ng-click="changeAccess(user,'Read')">Read</a></li>
+	  				    <li><a href="#" ng-click="changeAccess(user,'Write')">Write</a></li>
 	  				  </ul>
 	  				</div>
 	  			</td>
@@ -97,7 +99,7 @@
             <div class="form-group">
             	{!!Form::label("state","Can : ",["class"=>"col-lg-offset-1 col-lg-2 control-label"])!!}
             	<div class="col-lg-8">
-            	    {!! Form::select("state",["4"=>"read","5"=>"write"],null,["class"=>"form-control col-lg-4","id"=>"user_state_select"]) !!}            	 
+            	    {!! Form::select("state",["Admin"=>"Admin","Read"=>"Read","Write"=>"Write"],null,["class"=>"form-control col-lg-4","id"=>"user_role_select"]) !!}
             	</div>
             </div>  
             <div class="form-group">

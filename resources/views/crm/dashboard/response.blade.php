@@ -47,7 +47,7 @@
      <th class="twidth" ng-repeat="filter in filterValues">(( filter.text ))</th>         
     </tr>
   </thead>
-  @if($admin["user_state"] == 1 || $admin["user_state"] == 3)
+  @if($admin["role"] == 'Admin' || $admin["role"] == 'Write')
   <tbody>
      <tr ng-repeat="data in responseData | Search:searchOption:searchValue:dateFilterData" ng-class="data.class"  >     
       <td class="twidth" ng-click="toogleClass(data.user.sno)">(( data.user.sno ))</td>

@@ -500,8 +500,9 @@ class ApiController extends Controller{
 		$crm = new Crmadmins;
 		$crm->email = $input["email"];
 		$crm->password = "";
-		$crm->user_state  = intval($input["user_state"]);
+		$crm->role  = $input["role"];
 		$crm->username = "";
+		$crm->status = "invited";
 		$random = str_random(45);
 		$crm->token = $random;
 		$url = URL::to("/crm/signup/".$random);
@@ -526,7 +527,7 @@ class ApiController extends Controller{
 		if($admin->count()==0)
 			return $this->errorResponse("No such user!");				
 		$admin = $admin->first();
-		$admin->user_state = intval($input["user_state"]);
+		$admin->role = $input["role"];
 		return $this->validResponse($admin->save());
 
 	}
@@ -542,13 +543,11 @@ class ApiController extends Controller{
 		$crmadmins = Crmadmins::all();
 		$responseData = ["invitations"=>[],"admins"=>[]];
 		foreach ($crmadmins as $admin ) {
-			if($admin->user_state != 1){
-				if($admin->user_state == 4 || $admin->user_state == 5){
-					array_push($responseData["invitations"],$admin->toArray());
-				}else if($admin->user_state == 2 || $admin->user_state == 3){	
-					array_push($responseData["admins"],$admin->toArray());
-				}
-			}
+            if($admin->status == 'invited'){
+                array_push($responseData["invitations"],$admin->toArray());
+            }else if($admin->status == 'active'){
+                array_push($responseData["admins"],$admin->toArray());
+            }
 		}
 		return $this->validResponse($responseData);
 	}
@@ -645,7 +644,7 @@ class ApiController extends Controller{
 		$user->email = $input["data"]["email"];
 		$user->save();
 		\Session::forget("admin");
-		session()->set("admin",["id"=>$user->id,"username"=>$user->username,"email"=>$user->email,"user_state"=>$user->user_state]);
+		session()->set("admin",["id"=>$user->id,"username"=>$user->username,"email"=>$user->email,"role"=>$user->role]);
 		return $this->validResponse("success");
 
 	}

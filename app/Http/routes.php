@@ -201,13 +201,12 @@ Route::get("crm/signup/{token}", function($token){
 
 Route::post("crm/signup", function(){
 	$inputs = Request::all();
-	if($inputs["password"] != $inputs["conf_password"] )
+	if($inputs["password"]  && $inputs["password"] != $inputs["conf_password"] )
 		return redirect()->back()->with("signuperror","Password doesn't match!")->withUser($inputs["username"]);
 	$crm = Crmadmins::where("id","=",$inputs["id"])->first();	
 	$crm->token = NULL;
 	$crm->username = $inputs["username"];
 	$crm->password = Hash::make($inputs["password"]);
-	$crm->user_state= ($crm->user_state == 4)? 2:3;
 	$crm->save();
 	return redirect()->to("crm/login");
 });

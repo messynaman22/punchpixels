@@ -15,7 +15,6 @@ $scope.fetchAdmins = function(){
 	$http.get(getUrl).success(function(data,status){
 		$scope.invitedUser = data.invitations;
 		$scope.admins = data.admins;
-		console.log(data);
 	}).error(function(data,status){
 		console.log(data);
 	});
@@ -24,15 +23,16 @@ $scope.fetchAdmins = function(){
 
 
 $scope.sendInvite = function(){	
-	var email = $("#user_form_email").val(), access = $("#user_state_select").val();
+	var email = $("#user_form_email").val(), access = $("#user_role_select").val();
 	if(email=="" || !$scope.isvalidEmail(email) ){
 		$scope.validation=Validation.setRequest("Enter valid email address!");
 		return;
 	}
 	$scope.validation = Validation.clearValidation();
+
 	$inputs = {
 		email : email,
-		user_state:access,
+		role:access,
 		token : token_app,
 	};
 	$scope.request = Request.setRequest("request","Sending invite to user.");
@@ -50,11 +50,11 @@ $scope.sendInvite = function(){
 $scope.changeAccess = function(user,access){
 	$inputs = {
 		id : user.id,
-		user_state:access,
+		role:access,
 		token:token_app,
 	};
 	$http.post(apiUrl+"/changeaccess",$inputs).success(function(data,status){
-		user.user_state=access;
+		user.role=access;
 	}).error(function(data,status){
 		sweetAlert("Oops!!", "Something is fishy", "error");
 		console.log(data);
@@ -100,7 +100,7 @@ $scope.closeModal = function(){
 	$scope.clearRequest();
 	$scope.validation = Validation.clearValidation();
 	$("#user_form_email").val("");
-	$("#user_state_select").val("");
+	$("#user_role_select").val("");
 }
 $scope.clearRequest();
 $scope.fetchAdmins();

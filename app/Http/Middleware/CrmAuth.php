@@ -16,7 +16,7 @@ class CrmAuth {
 		if ($request->ajax())
 			return response('Unauthorized.', 401);
 
-		if( $this->admin==null  && $request->url()!=URL::to("crm/login") )
+		if( $this->admin==null  && $request->url()!=URL::to("crm/login") && $request->url()!=URL::to("crm/forgotpassword") )
 			return redirect()->to("crm/login");
 		else
 			return $next($request);

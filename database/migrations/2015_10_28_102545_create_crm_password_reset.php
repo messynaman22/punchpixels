@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ContractAgreementSectionTable extends Migration {
+class CreateCrmPasswordReset extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,12 +12,11 @@ class ContractAgreementSectionTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('contract_agreement_section', function(Blueprint $table)
+		Schema::create('crm_password_resets', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string("section_name")->unique();
-			$table->string("section_description");
-			$table->text("content");
+			$table->string('email')->index();
+			$table->string('token')->index();
 			$table->timestamps();
 		});
 	}
@@ -29,7 +28,7 @@ class ContractAgreementSectionTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('contract_agreement_section');
+		Schema::drop('crm_password_resets');
 	}
 
 }

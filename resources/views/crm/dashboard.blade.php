@@ -25,21 +25,25 @@
         </div>
 
         <div class="navbar-collapse collapse" id="navbar-main">
-                  <ul class="nav navbar-nav">                    
+                  <ul class="nav navbar-nav">
+                    @if($admin["role"]=='Admin')
                     <li @if(isset($optclass))class="active" @endif>
                       <a href={!! URL::to("crm/options") !!} >Options</a>
                     </li>
+                    @endif
                     <li  @if(isset($resclass)) class="active" @endif>
                       <a href={!! URL::to("crm/response") !!}>View Responses</a>
                     </li>        
-                    @if($admin["user_state"]==1)
+                    @if($admin["role"]=='Admin')
                     <li  @if(isset($invclass)) class="active" @endif>
                       <a href={!! URL::to("crm/invite") !!}>Manage CRM users</a>
                     </li>                   
                     @endif
+                    @if($admin["role"]=='Admin')
                     <li  @if(isset($agreclass)) class="active" @endif>
                       <a href={!! URL::to("crm/agreement") !!}>Manage Agreement</a>
                     </li>
+                    @endif
                   </ul>
 
                   <ul class="nav navbar-nav navbar-right">                 

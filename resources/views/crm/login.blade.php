@@ -25,6 +25,14 @@
         <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
       </div><!-- /.col -->
     </div>
+     <div class="row">
+         <div class="col-xs-6">
+
+         </div><!-- /.col -->
+         <div class="col-xs-6">
+             <a class="pull-right" href="{{ url('/crm/forgotpassword') }}">Forgot password?</a>
+         </div><!-- /.col -->
+     </div>
   </form>
   </div>
   @if($errors->any())
