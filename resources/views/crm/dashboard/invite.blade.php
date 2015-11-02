@@ -44,6 +44,7 @@
 	  			<th>Username</th>
 	  			<th>E-mail</th>
 	  			<th>Permission</th>
+				<th>Status</th>
 	  			<th>Delete User</th>
 	  		</tr>
 	  	</thead>
@@ -62,6 +63,12 @@
 	  				  </ul>
 	  				</div>
 	  			</td>
+                <td>
+                    <div class="btn-group" >
+                        <a href="#" class="btn btn-sm btn-primary" ng-show="user.status=='active'" disabled>Active</a>
+                        <a href="#" class="btn btn-sm btn-primary btn-unblock" ng-show="user.status=='blocked'" ng-click="unblockUser(user)"><span class="state-idle">Blocked</span><span class="state-hover">Unblock</span></a>
+                    </div>
+                </td>
 	  			<td>
 	  				<button class='btn btn-danger btn-sm' ng-click="removeUser(2,user)"><i class='fa  fa-w fa-close'></i></button>
 	  			</td>
@@ -158,6 +165,20 @@
 	  line-height: 1.33;
 	  border-radius: 35px;
 	}
+
+    .btn-unblock .state-idle{
+        display: block;
+    }
+    .btn-unblock .state-hover{
+        display: none;
+    }
+
+    .btn-unblock:hover .state-idle{
+        display: none;
+    }
+    .btn-unblock:hover .state-hover{
+        display: block;
+    }
 
 </style>
 @endsection

@@ -538,6 +538,16 @@ class ApiController extends Controller{
 		return $this->validResponse("success");
 	}
 
+	public function postUnblockcrmadmin(){
+		$input = Request::all();
+		$admin = Crmadmins::where("id","=",$input["id"]);
+		$admin = $admin->first();
+		$admin->status = 'active';
+		$admin->login_attemps = 0;
+		$admin->save();
+		return $this->validResponse("success");
+	}
+
 	
 	public function getCrmadmins(){
 		$crmadmins = Crmadmins::all();
@@ -545,7 +555,7 @@ class ApiController extends Controller{
 		foreach ($crmadmins as $admin ) {
             if($admin->status == 'invited'){
                 array_push($responseData["invitations"],$admin->toArray());
-            }else if($admin->status == 'active'){
+            }else if($admin->status == 'active' || $admin->status == 'blocked' ){
                 array_push($responseData["admins"],$admin->toArray());
             }
 		}

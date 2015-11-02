@@ -40,12 +40,24 @@ class CrmController extends Controller{
 		
 		$admin = $admin->first();
 
+        if($admin->status == 'blocked')
+            return redirect()->to("crm/login")->with("errormessage","This account is blocked. Please contact your admin.");
+
 		if($admin->status != 'active')
 			return redirect()->to("crm/login")->with("errormessage","Invalid user. Please register first.");
 
-		if(!Hash::check($inputs["password"],$admin->password))
-			return redirect()->to("crm/login")->with("errormessage","Invalid password");
-		
+		if(!Hash::check($inputs["password"],$admin->password)) {
+            $admin->login_attemps = ($admin->login_attemps)? $admin->login_attemps + 1: 1;
+            if ($admin->login_attemps >= 10){
+                $admin->status = 'blocked';
+            }
+            $admin->save();
+            return redirect()->to("crm/login")->with("errormessage", "Invalid password");
+        }
+
+        $admin->login_attemps = 0;
+        $admin->save();
+        
 		session()->set("admin",["id"=>$admin->id,"username"=>$admin->username,"email"=>$admin->email,"role"=>$admin->role]);
 		return redirect()->to("crm/response");
 	}

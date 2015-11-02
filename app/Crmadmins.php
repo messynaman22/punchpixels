@@ -8,7 +8,7 @@ class Crmadmins extends Model {
     public $timestamps = true;
 
  
-    protected $fillable = [ 'username' , 'password',"email", "role", "status"];
+    protected $fillable = [ 'username' , 'password',"email", "role", "status", "login_attemps"];
 
     
 }
