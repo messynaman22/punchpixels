@@ -29,10 +29,10 @@
                         <input type="text" ng-show= "isDate" class="form-control" datepicker-popup="dd-MM-yyyy"ng-model="dateFilterData"  datepicker-options="dateOptions"  ng-required="true" close-text="Close" placeholder="Select Date" />                          
                         <select ng-model="searchOption" ng-options="filter.text for filter in filterValues"  class="form-control" style="color:#666666" ></select>                                               
                        &nbsp;&nbsp; 
-                        <label for="history" style="color:white">Show data from :</label>
-                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#historyModal">(( (historyDate)? ( historyDate | date:'MMM dd yyyy' ):   "Beginning"))</button>
+                        <label for="history">Show data from :</label>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#historyModal">(( (historyDate)? ( historyDate | date:'MMM dd yyyy' ):   "Beginning"))</button>
                         @if($admin["role"] == 'Admin' || $admin["role"] == 'Write')
-                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addUser"><i class="fa fa-plus"></i> &nbsp;&nbsp;Add User</button>    
+                        <button type="button" class="btn btn-primary btn-green" data-toggle="modal" data-target="#addUser"><i class="fa fa-plus"></i> &nbsp;&nbsp;Add User</button>
                         <button type="button" class="btn btn-danger" ng-click="deleteUsers()" ng-disabled="selectedData.length == 0"><i class="fa fa-close"></i> &nbsp;&nbsp;Delete User</button>
                         @endif
                     </form>              
@@ -158,16 +158,16 @@
    data-backdrop="static" 
    data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" z-index="999999">
   <div class="modal-dialog" role="document"  style="z-index:9000" >
-    <div class="modal-content modalbody" >      
+    <div class="modal-content modalbody" >
       <div class="modal-body" style="height:170px">
-          <span class="pull-right clickable"  ng-show=" file || error == 'alert-danger'" ng-click="closeModal()"><i class="fa fa-close"></i></span>
+          <span style="color: red;" class="pull-right clickable"  ng-show=" file || error == 'alert-danger'" ng-click="closeModal()"><i class="fa fa-close"></i></span>
           <div class="col-xs-12  nopadding">      
           <div class="col-sm-4" ng-hide="error=='alert-danger'">
               <img  src=((image)) width="100" height="100" />
           </div>
           <div class="col-sm-8">
               <span ng-show="file">The (( file.filename )) is ready to be downloaded<br>
-              <a ng-show="file"  href="(( file.url))" class="btn btn-default" download>Download the file..</a></span>        
+              <a ng-show="file"  href="(( file.url))" class="btn btn-primary" download>Download the file..</a></span>
               <div style="margin-top: 25px !important;" ng-hide="file || error == 'alert-danger' "><i class="fa fa-spin fa-circle-o-notch"></i>&nbsp; Preparing requested file, please wait ...</div>
           </div>
               <div style="margin-top: 25px !important;color:#E51C23;font-weight:bold" ng-show="error=='alert-danger'" class="col-xs-12"><i class="fa fa-frown-o" ></i>&nbsp;((errorMsg))</div>
@@ -191,9 +191,10 @@
                       <div style="display:inline-block; min-height:290px;margin-left:80px">
                             <datepicker ng-model="historyDate" datepicker-popup="dd-MM-yyyy"  datepicker-options="dateOptions"  show-weeks="true" class="well well-sm">                              
                             </datepicker>
-                      </div>          
-                      <br>
-                      <button class="btn btn-primary" style="margin-left:80px" ng-click="fromBeginning()">From beginning</button>               
+                      </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" style="margin-left:80px" ng-click="fromBeginning()">From beginning</button>
                 </div>
               </div>    
           </div>
@@ -423,7 +424,7 @@
 
                       <div class="modal-footer" >
                       <div class="form-group">
-                        <button class="btn btn-primary col-lg-offset-9" type="button" ng-disabled="saverequest.type=='request'" ng-click="saveNewUser()">Add user</button>
+                        <button class="btn btn-primary col-lg-offset-9" type="button" ng-disabled="saverequest.type=='request'" ng-click="saveNewUser()">From Beginning</button>
                       </div>
                           <div class="alert alert-dismissible col-lg-offset-2 col-lg-9 text-left" ng-show="saverequest.isActive"
                                                   ng-class="saverequest.alert" style="font-size: 15px">        
@@ -463,7 +464,7 @@
 }
 
 .bg-custom{
-  background:#CCFF82;
+  background:#EDB59C;
 }
 
 #searchForm input, #searchForm select{

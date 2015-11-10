@@ -12,18 +12,14 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
  
     <link href="{{ asset('/') }}plugins/iCheck/square/blue.css" rel="stylesheet" type="text/css" />
-
+    {!! HTML::style("css/crm/login.css") !!}
 
   </head>
   <body class="login-page">
     <div class="login-box">
       <div class="login-logo">
-        <a href="{!! URL::to('/') !!}"><b>Credit1Solutions.com</b> 
-        @if(isset($extra))
-          {!! $extra !!}
-        @else
-        CMS
-        @endif
+        <a href="{!! URL::to('/') !!}">
+          <img src="{!! URL::asset("images/logo.png") !!}" style="width: 200px;height: 35px;margin-top: -5px;">
         </a>
       </div><!-- /.login-logo -->
       @yield('content')
@@ -38,9 +34,9 @@
     <script src="../../plugins/iCheck/icheck.min.js" type="text/javascript"></script>
     <script>
       $(function () {
-        $('input').iCheck({
-          checkboxClass: 'icheckbox_square-blue',
-          radioClass: 'iradio_square-blue',
+        $('input.iCheckbox').iCheck({
+          checkboxClass: 'icheckbox_square-orange',
+          radioClass: 'iradio_square-orange',
           increaseArea: '20%' // optional
         });
       });

@@ -26,7 +26,7 @@ class CrmController extends Controller{
 
 	public function getLogin(){		
 		$error = session()->get("errormessage", "default");			
-		return view("crm.login")->with("extra","CRM")->with("message",$error);
+		return view("crm.login")->with("message",$error);
 	}
 
 	public function postLogin(LoginCrmRequest $login){

@@ -4,7 +4,7 @@
     <div class="container-fluid " style="margin-top:100px;margin-left:10px" ng-app="AgreementApp" ng-controller="AgreementController">
         <div class="col-md-12">
             <div class="col-md-8">
-                <button class="btn btn-primary" data-toggle="modal" data-target="#addAgreementSection">
+                <button class="btn btn-primary btn-green" data-toggle="modal" data-target="#addAgreementSection">
                     <i class="fa fa-plus"></i> Add new contract section
                 </button>
             </div>
@@ -16,16 +16,17 @@
         <div class="col-md-12" style="margin-top:20px;padding:0px">
 
             <div class="col-md-12">
-                <div class="panel panel-info ">
+                <div class="panel panel-default ">
                     <div class="panel-heading">
                         <h3 class="panel-title">Contract Agreement Sections</h3>
                     </div>
                     <table class="table table-bordered" ng-show="agreementSections.length" co>
-                        <thead>
+                        <thead class="gray">
                         <tr>
                             <th>Section name</th>
                             <th>Section Description</th>
                             <th>Content</th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -34,7 +35,7 @@
                             <td class="col-md-3">(( agreementSection.section_description ))</td>
                             <td class="col-md-4">(( agreementSection.content| limitTo: 40 ))...</td>
                             <td class="col-md-2">
-                                <button class='btn btn-danger btn-sm' ng-click="editingAgreementSection($index, agreementSection)">
+                                <button class='btn btn-primary btn-green btn-sm' ng-click="editingAgreementSection($index, agreementSection)">
                                     <i class='fa  fa-w fa-edit'></i>Edit</button>
 
                                 <button class='btn btn-danger btn-sm' ng-click="removeAgreementSection($index, agreementSection)">
