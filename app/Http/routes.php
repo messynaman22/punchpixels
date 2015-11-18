@@ -207,6 +207,7 @@ Route::post("crm/signup", function(){
 	$crm->token = NULL;
 	$crm->username = $inputs["username"];
 	$crm->password = Hash::make($inputs["password"]);
+	$crm->status = 'active';
 	$crm->save();
 	return redirect()->to("crm/login");
 });

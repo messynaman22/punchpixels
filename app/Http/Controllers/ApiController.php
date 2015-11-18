@@ -355,21 +355,23 @@ class ApiController extends Controller{
 		$response["interestedList"] = $this->interestedList();
 		$response["states"] = $this->stateList();
 		foreach ($userData as $user) {
-			$profile = Profile::where("user_id","=",$user->id)->first();		
-			 if($profile){			 	
-			 	$order = Order::where("user_id","=",$profile->id)->first();
-			 	if($order){
-			 		$laststep = Laststep::where("user_id","=",$profile->id)->first();
-			 		$user->date = $user->created_at->toFormattedDateString();	
-			 		$user->today = $user->created_at->toDateString();
-			 		$user->time_submitted = $user->created_at->format('M j, Y g:i A');;			 		
-			 		array_push($response["data"], ["order"=>$order->toArray(),
-			 					    "profile"=>$profile->toArray(),
-			 					    "user"=>$user->toArray(),
-			 					    "last"=>$laststep->toArray()]);
-			 	}
-			 }
-		}		
+			$profile = Profile::where("user_id","=",$user->id)->first();
+			if($profile){
+				$order = Order::where("user_id","=",$profile->id)->first();
+				if($order){
+					$laststep = Laststep::where("user_id","=",$profile->id)->first();
+					if ($laststep){
+						$user->date = $user->created_at->toFormattedDateString();
+						$user->today = $user->created_at->toDateString();
+						$user->time_submitted = $user->created_at->format('M j, Y g:i A');;
+						array_push($response["data"], ["order"=>$order->toArray(),
+							"profile"=>$profile->toArray(),
+							"user"=>$user->toArray(),
+							"last"=>$laststep->toArray()]);
+					}
+				}
+			}
+		}
 		return $this->validResponse($response);
 	}
 

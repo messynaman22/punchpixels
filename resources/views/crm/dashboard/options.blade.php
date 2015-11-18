@@ -70,7 +70,7 @@
 					    		<tr ng-repeat="email in emails">
 					    		<td>(( email.email ))</td>
 					    		<td><input type="checkbox"  ng-model="email.included"  ng-true-value="'1'" ng-false-value="'0'" ng-click="updateEmail(email)"></td>
-					    		<td><button class="btn btn-danger btn-round" ng-click="delEmail(email)"><i class="fa fa-close"></i></button></td>
+					    		<td><a class="delete-x" ng-click="delEmail(email)"><i class="fa fa-times-circle-o"></i></a></td>
 					    		</tr>
 					    	</tbody>
 					  </table>

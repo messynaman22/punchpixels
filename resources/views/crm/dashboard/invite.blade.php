@@ -3,11 +3,11 @@
 @section("container")
 <div class="container-fluid " style="margin-top:100px;margin-left:10px" ng-app="InviteApp" ng-controller="InviteController">
 <div class="col-md-12">
-<button class="btn btn-primary" data-toggle="modal" data-target="#sendInvite"><i class="fa fa-plus"></i> Invite users</button>
+<button class="btn btn-primary btn-green" data-toggle="modal" data-target="#sendInvite"><i class="fa fa-plus"></i> Invite users</button>
 </div>
 <div class="col-md-12" style="margin-top:20px;padding:0px">
 <div class="col-md-5" >
-	<div class="panel panel-success ">
+	<div class="panel panel-default ">
 		  <div class="panel-heading">
 		    <h3 class="panel-title">Invite sent</h3>
 		  </div>
@@ -17,8 +17,8 @@
 		   	<button class='btn btn-danger btn-sm  pull-right' style="margin-top:-7px" ng-click="removeUser(1,user)"><i class='fa  fa-w fa-close'></i>&nbsp;Cancel Invite</button>
 		
 		   	<div class="btn-group pull-right" style="margin-top:-7px;margin-right:10px">		   	
-		   	  <a href="#" class="btn btn-sm btn-primary" disabled>(( user.role ))</a>
-		   	  <a href="#" class="btn btn-sm  btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+		   	  <a href="#" class="btn btn-sm btn-primary btn-gray" disabled>(( user.role ))</a>
+		   	  <a href="#" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
 		   	  <ul class="dropdown-menu">
 		   	    <li><a href="#" ng-click="changeAccess(user,'Admin')">Admin</a></li>
 		   	    <li><a href="#" ng-click="changeAccess(user,'Read')">Read</a></li>
@@ -34,12 +34,12 @@
 	</div>
 </div>
 <div class="col-md-7">	
-	<div class="panel panel-info ">
+	<div class="panel panel-default">
 	  <div class="panel-heading">
 	    <h3 class="panel-title">Active users</h3>
 	  </div>
 	  <table class="table table-bordered" ng-show = "admins.length">
-	  	<thead>
+	  	<thead class="gray">
 	  		<tr>
 	  			<th>Username</th>
 	  			<th>E-mail</th>
@@ -54,7 +54,7 @@
 	  			<td> (( user.email ))</td>
 	  			<td>
 	  				<div class="btn-group" >		   	
-	  				  <a href="#" class="btn btn-sm btn-primary" disabled>(( user.role  ))</a>
+	  				  <a href="#" class="btn btn-sm btn-primary btn-gray" disabled>(( user.role  ))</a>
 	  				  <a href="#" class="btn btn-sm  btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
 	  				  <ul class="dropdown-menu">
 	  				    <li><a href="#" ng-click="changeAccess(user,'Admin')">Admin</a></li>
@@ -65,7 +65,7 @@
 	  			</td>
                 <td>
                     <div class="btn-group" >
-                        <a href="#" class="btn btn-sm btn-primary" ng-show="user.status=='active'" disabled>Active</a>
+                        <a href="#" class="btn btn-sm btn-primary btn-gray" ng-show="user.status=='active'" disabled>Active</a>
                         <a href="#" class="btn btn-sm btn-primary btn-unblock" ng-show="user.status=='blocked'" ng-click="unblockUser(user)"><span class="state-idle">Blocked</span><span class="state-hover">Unblock</span></a>
                     </div>
                 </td>

@@ -14,25 +14,20 @@
       <span class="glyphicon glyphicon-lock form-control-feedback"></span>
     </div>
     <div class="row">
+      <div class="col-xs-4">
+        <button type="submit" class="btn btn-primary btn-block btn-flat">Send</button>
+      </div><!-- /.col -->
       <div class="col-xs-8">    
-        <div class="checkbox icheck">
-          <label>
+        <div>
+          <label style="float: right;">
             <input name="remember" type="checkbox"> Remember Me
-          </label>
+          </label><br />
+          <a class="pull-right" href="{{ url('/crm/forgotpassword') }}">Forgot password?</a>
         </div>                        
       </div><!-- /.col -->
-      <div class="col-xs-4">
-        <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
-      </div><!-- /.col -->
-    </div>
-     <div class="row">
-         <div class="col-xs-6">
 
-         </div><!-- /.col -->
-         <div class="col-xs-6">
-             <a class="pull-right" href="{{ url('/crm/forgotpassword') }}">Forgot password?</a>
-         </div><!-- /.col -->
-     </div>
+    </div>
+
   </form>
   </div>
   @if($errors->any())

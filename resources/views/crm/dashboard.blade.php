@@ -9,6 +9,7 @@
       {!! HTML::style("css/font-awesome.css") !!}
 	<!-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"> -->
 	{!! HTML::style("css/sweetalert.css") !!}	
+	{!! HTML::style("css/crm/crm.css") !!}
 	@yield("extrastyles")
 </head>
 <body>
